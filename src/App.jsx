@@ -978,9 +978,10 @@ function AcceptContractPanel({ escrow, balance, toUSD, onClose, onSuccess, showT
         return
       }
       
-      const requiredAmount = fromTokenAmount(matchingOffer.amount) * 2
+      // Seller deposits 1x amount (not 2x like buyer)
+      const requiredAmount = fromTokenAmount(matchingOffer.amount)
       if (balance < requiredAmount) {
-        showToast(`Insufficient balance. Need ${formatNumber(requiredAmount)} h173k`, 'error')
+        showToast(`Insufficient balance. Need ${formatNumber(requiredAmount)} h173k as collateral`, 'error')
         setLoading(false)
         return
       }
@@ -1007,7 +1008,7 @@ function AcceptContractPanel({ escrow, balance, toUSD, onClose, onSuccess, showT
       <div className="accept-contract-info">
         <p>
           Enter the contract code shared by the buyer to accept their offer.
-          You will need to deposit the contract amount as collateral.
+          You will deposit 1x the contract amount as collateral (returned after completion).
         </p>
       </div>
 
