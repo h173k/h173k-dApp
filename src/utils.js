@@ -90,7 +90,7 @@ export function fromTokenAmount(amount) {
 /**
  * Format number with commas
  */
-export function formatNumber(num, decimals = 2) {
+export function formatNumber(num, decimals = 6) {
   if (num === null || num === undefined || isNaN(num)) return '0'
   return num.toLocaleString('en-US', {
     minimumFractionDigits: 0,
