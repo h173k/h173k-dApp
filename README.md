@@ -101,7 +101,3 @@ src/
 ├── usePrice.js      # Hook for CoinGecko price fetching
 └── utils.js         # Utility functions
 ```
-
-## License
-
-MIT
